@@ -21,13 +21,10 @@ const App = () => {
   useEffect(() => {
     socket.on("connect", () => {
       id.current = socket.id;
-      console.log("socket", socket.id);
     });
 
     socket.on("user-turn", (userTurn) => {
-      console.log(userTurn);
       if (userTurn === id.current) {
-        console.log("mah life mah turn");
         setreadonly(false);
       } else {
         setreadonly(true);
