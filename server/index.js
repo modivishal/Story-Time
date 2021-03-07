@@ -6,7 +6,7 @@ var userIds = [];
 let userTurn = 0;
 let userTime;
 let operations = [];
-const maxUser = 3;
+const maxUser = 5;
 
 const scheduleUserTurn = () => {
   io.emit("user-turn", userIds[userTurn]);
