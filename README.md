@@ -7,16 +7,16 @@ A multi-player story writing interface.
 git clone https://github.com/modivishal/Story-Time.git
 
 **Install dependencies**
-npm install
+- npm install
 
 **Run the server**
-node server/index.js
+- node server/index.js
 
 **Start the client**
-npm run start
+- npm run start
 
 **Build for production**
-npm run build
+- npm run build
 
 # Documentation
 Folder Structure : All the client side code (react, css, js and any other assets) is inside the src directory. Backend Node.js/Express code is under the server directory.
