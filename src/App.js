@@ -13,7 +13,7 @@ const App = () => {
   const [value, setValue] = useState([
     {
       type: "paragraph",
-      children: [{ text: "Enter Something:" }],
+      children: [{ text: "Enter text here: " }],
     },
   ]);
   const [readonly, setreadonly] = useState(true);
@@ -31,7 +31,7 @@ const App = () => {
       }
     });
 
-    socket.on("new-remote-operations", ({ editorId, ops }) => {
+    socket.on("new-remote-ops", ({ editorId, ops }) => {
       if (id.current !== editorId) {
         remote.current = true;
         JSON.parse(ops).forEach((op) => {
@@ -78,7 +78,7 @@ const App = () => {
           .map((o) => ({ ...o, data: { source: "one" } }));
 
         if (ops.length && !remote.current) {
-          socket.emit("new-operations", {
+          socket.emit("new-ops", {
             editorId: id.current,
             ops: JSON.stringify(ops),
           });

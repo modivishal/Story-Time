@@ -61,8 +61,8 @@ io.on("connection", (socket) => {
     }
   });
 
-  socket.on("new-operations", (data) => {
-    io.emit("new-remote-operations", data);
+  socket.on("new-ops", (data) => {
+    io.emit("new-remote-ops", data);
     operations = operations.concat(JSON.parse(data.ops));
   });
 });
