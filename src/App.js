@@ -18,7 +18,18 @@ const App = () => {
   ]);
   const [readonly, setreadonly] = useState(true);
 
+  
+
   useEffect(() => {
+
+    const applyOps = (ops) => {
+      remote.current = true;
+      JSON.parse(ops).forEach((op) => {
+        editor.apply(op);
+      });
+      remote.current = false;
+    }
+
     socket.on("connect", () => {
       id.current = socket.id;
     });
@@ -33,21 +44,13 @@ const App = () => {
 
     socket.on("new-remote-ops", ({ editorId, ops }) => {
       if (id.current !== editorId) {
-        remote.current = true;
-        JSON.parse(ops).forEach((op) => {
-          editor.apply(op);
-        });
-        remote.current = false;
+        applyOps(ops);
       }
     });
 
     socket.on("initial-operations", ({ userId, ops }) => {
       if (id.current === userId) {
-        remote.current = true;
-        JSON.parse(ops).forEach((op) => {
-          editor.apply(op);
-        });
-        remote.current = false;
+        applyOps(ops);
       }
     });
 
