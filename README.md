@@ -3,19 +3,19 @@ A multi-player story writing interface.
 
 # Quick Start
 
-# Clone the repository
+**Clone the repository**
 git clone https://github.com/modivishal/Story-Time.git
 
-# Install dependencies
+**Install dependencies**
 npm install
 
-# Run the server
+**Run the server**
 node server/index.js
 
-# Start the client
+**Start the client**
 npm run start
 
-# Build for production
+**Build for production**
 npm run build
 
 # Documentation
